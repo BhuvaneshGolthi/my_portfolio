@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Golthi Bhuvanesh | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; }
+
+    .animated-name {
+      background: linear-gradient(90deg, #1abc9c, #f39c12, #8e44ad);
+      background-size: 300% auto;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: slideInFromRight 2s ease-out forwards, slideGradient 5s linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes slideInFromRight {
+      0% { transform: translateX(100%); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideGradient {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* Glowing border container around profile */
+    .glow-border {
+      position: relative;
+      width: 16rem;  /* Adjusted size */
+      height: 16rem;
+      border-radius: 9999px;
+      padding: 6px; /* acts as border thickness */
+      background: linear-gradient(270deg, #1abc9c, #f39c12, #8e44ad, #1abc9c);
+      background-size: 600% 600%;
+      animation: glowingBorder 8s ease infinite;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 25px rgba(255,255,255,0.25);
+      transition: box-shadow 0.3s ease;
+    }
+
+    /* Profile image inside glow border */
+    .glow-border img {
+      border-radius: 9999px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .glow-border:hover {
+      box-shadow: 0 0 40px rgba(255,255,255,0.6);
+    }
+
+    .glow-border:hover img {
+      transform: scale(1.07);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+    }
+
+    @keyframes glowingBorder {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .perspective {
+      perspective: 1000px;
+    }
+
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
+
+    .rotateY-180 {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+<!-- Navbar -->
+<nav class="fixed w-full bg-gray-800 shadow-md z-50">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center relative">
+    <div class="flex items-center space-x-4">
+      <a href="#" class="text-2xl font-bold animated-name">Bhuvanesh</a>
+      <a href="resume.pdf" download class="text-sm px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition md:inline hidden">Resume</a>
+    </div>
+
+    <!-- Hamburger for mobile -->
+    <button id="menuToggle" class="md:hidden text-white focus:outline-none">
+      <i class="fas fa-bars text-2xl"></i>
+    </button>
+
+    <ul id="mobileMenu" class="hidden md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 text-gray-300 font-semibold absolute md:static bg-gray-800 md:bg-transparent w-full md:w-auto left-0 md:left-auto top-full md:top-auto p-6 md:p-0 rounded-b-lg md:rounded-none z-40 md:z-auto">
+      <li><a href="#about" class="hover:text-white block md:inline">About</a></li>
+      <li><a href="#skills" class="hover:text-white block md:inline">Skills</a></li>
+      <li><a href="#projects" class="hover:text-white block md:inline">Projects</a></li>
+      <li><a href="#contact" class="hover:text-white block md:inline">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="h-screen flex flex-col items-center justify-center bg-gradient-to-tr from-indigo-700 via-purple-700 to-pink-600 text-white text-center px-6 pt-24" data-aos="zoom-in">
+  <div class="glow-border">
+    <img src="profile.png" alt="Profile" />
+  </div>
+  <h1 class="text-5xl font-extrabold mb-4 animated-name">Hi, I'm Golthi Bhuvanesh</h1>
+  <p class="text-2xl font-light mb-6">Computer Science Student | Web & Data Enthusiast</p>
+  <a href="#projects" class="px-8 py-3 bg-white text-indigo-600 font-bold rounded-lg shadow-lg hover:scale-105 transition-transform">Explore My Work</a>
+</section>
+
+<!-- About -->
+<section id="about" class="py-20 bg-gray-800" data-aos="fade-up">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-6">About Me</h2>
+    <p class="text-lg text-gray-300">I'm a passionate Computer Science student with hands-on experience in web development, data analytics, and cybersecurity. I love solving real-world problems through technology and continuously learning to upgrade my skills.</p>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="py-20 bg-gray-900" data-aos="fade-up">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-12">Skills</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-gray-200">
+      <div class="bg-gray-700 p-4 rounded-lg">HTML & CSS</div>
+      <div class="bg-gray-700 p-4 rounded-lg">Python</div>
+      <div class="bg-gray-700 p-4 rounded-lg">Java</div>
+      <div class="bg-gray-700 p-4 rounded-lg">Pandas</div>
+      <div class="bg-gray-700 p-4 rounded-lg">Power BI</div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="py-20 bg-gray-800" data-aos="fade-up">
+  <div class="container mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300">Projects</h2>
+    <div class="grid md:grid-cols-2 gap-10">
+
+      <div class="relative h-40 perspective hover:scale-105 transition-transform cursor-pointer" onclick="flipCard(this)">
+        <div class="card transform transition-transform duration-700 w-full h-full relative" style="transform-style: preserve-3d;">
+          <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 p-3 rounded-xl shadow-xl flex items-center justify-center backface-hidden">
+            <h3 class="text-lg font-bold text-white">Business Estate using Blockchain</h3>
+          </div>
+          <div class="absolute inset-0 bg-gray-900 text-gray-200 p-3 rounded-xl shadow-xl transform rotateY-180 flex items-center justify-center text-sm backface-hidden">
+            <p>Secure system to manage business estate records using blockchain ensuring data integrity and traceability.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative h-40 perspective hover:scale-105 transition-transform cursor-pointer" onclick="flipCard(this)">
+        <div class="card transform transition-transform duration-700 w-full h-full relative" style="transform-style: preserve-3d;">
+          <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 p-3 rounded-xl shadow-xl flex items-center justify-center backface-hidden">
+            <h3 class="text-lg font-bold text-white">Netflix Analysis using Power BI</h3>
+          </div>
+          <div class="absolute inset-0 bg-gray-900 text-gray-200 p-3 rounded-xl shadow-xl transform rotateY-180 flex items-center justify-center text-sm backface-hidden">
+            <p>Dashboard to analyze Netflix content, genres, and viewing behavior using Power BI insights.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative h-40 perspective hover:scale-105 transition-transform cursor-pointer" onclick="flipCard(this)">
+        <div class="card transform transition-transform duration-700 w-full h-full relative" style="transform-style: preserve-3d;">
+          <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 p-3 rounded-xl shadow-xl flex items-center justify-center backface-hidden">
+            <h3 class="text-lg font-bold text-white">Aviation Management Suite</h3>
+          </div>
+          <div class="absolute inset-0 bg-gray-900 text-gray-200 p-3 rounded-xl shadow-xl transform rotateY-180 flex items-center justify-center text-sm backface-hidden">
+            <p>Full-stack project to streamline flight scheduling, passenger support, and real-time data tracking.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative h-40 perspective hover:scale-105 transition-transform cursor-pointer" onclick="flipCard(this)">
+        <div class="card transform transition-transform duration-700 w-full h-full relative" style="transform-style: preserve-3d;">
+          <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 p-3 rounded-xl shadow-xl flex items-center justify-center backface-hidden">
+            <h3 class="text-lg font-bold text-white">Social Media Analysis with DevOps</h3>
+          </div>
+          <div class="absolute inset-0 bg-gray-900 text-gray-200 p-3 rounded-xl shadow-xl transform rotateY-180 flex items-center justify-center text-sm backface-hidden">
+            <p>DevOps-based system to monitor, analyze, and report trends from social media data streams.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-20 bg-gray-900" data-aos="fade-up">
+  <div class="max-w-2xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-6">Contact Me</h2>
+    <p class="text-gray-300 mb-6">Let's connect for exciting opportunities or collaborations!</p>
+    <div class="flex justify-center space-x-8 text-3xl">
+      <a href="mailto:golthibhuvanesh@gmail.com" target="_blank" class="text-indigo-400 hover:text-white"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/golthi-bhuvanesh-591a66268" target="_blank" class="text-indigo-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/BhuvaneshGolthi" target="_blank" class="text-indigo-400 hover:text-white"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</section>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  // Hamburger toggle
+  document.getElementById('menuToggle').addEventListener('click', () => {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('hidden');
+  });
+
+  // Flip card function
+ function flipCard(clickedElement) {
+  const allCards = document.querySelectorAll('.card');
+
+  allCards.forEach(card => {
+    // Reset all cards except the one being clicked
+    if (card !== clickedElement.querySelector('.card')) {
+      card.style.transform = 'rotateY(0deg)';
+    }
+  });
+
+  const thisCard = clickedElement.querySelector('.card');
+  const isFlipped = thisCard.style.transform === 'rotateY(180deg)';
+  
+  // Toggle the clicked card
+  thisCard.style.transform = isFlipped ? 'rotateY(0deg)' : 'rotateY(180deg)';
+}
+
+</script>
+
+</body>
+</html>
